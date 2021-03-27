@@ -1,0 +1,133 @@
+<section class="vh-100">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/home">My Forum</a>
+    </div>
+  </nav>
+  <div class="container d-flex justify-content-center pt-5 mt-5">
+    <div class="w-50">
+      <div class="card o-hidden border-black shadow">
+        <div class="card-body p-5">
+          <div class="container">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">
+                Registrate para usar My Forum!
+              </h1>
+            </div>
+            <form
+              #registerForm="ngForm"
+              (ngSubmit)="registerForm.form.valid && onSubmit(registerForm)"
+            >
+              <div class="form-group row">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre"
+                    name="nombre"
+                    [(ngModel)]="model.nombre"
+                    #nombre="ngModel"
+                    [ngClass]="{
+                      'is-invalid': registerForm.submitted && nombre.invalid
+                    }"
+                    nombre
+                    required
+                  />
+                  <div
+                    *ngIf="registerForm.submitted && nombre.invalid"
+                    class="invalid-feedback"
+                  >
+                    <p *ngIf="nombre.errors.required">
+                      EL nombre es requerido.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Apellido"
+                    name="apellido"
+                    [(ngModel)]="model.apellido"
+                    #apellido="ngModel"
+                    [ngClass]="{
+                      'is-invalid': registerForm.submitted && apellido.invalid
+                    }"
+                    required
+                  />
+                  <div
+                    *ngIf="registerForm.submitted && apellido.invalid"
+                    class="invalid-feedback"
+                  >
+                    <p *ngIf="apellido.errors.required">
+                      El apellido es requerido.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Usuario"
+                    name="username"
+                    [(ngModel)]="model.username"
+                    #username="ngModel"
+                    [ngClass]="{
+                      'is-invalid': registerForm.submitted && username.invalid
+                    }"
+                    username
+                    required
+                  />
+                  <div
+                    *ngIf="registerForm.submitted && username.invalid"
+                    class="invalid-feedback"
+                  >
+                    <p *ngIf="username.errors.required">
+                      EL usuario es requerido.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Contraseña"
+                    name="userpassword"
+                    [(ngModel)]="model.userpassword"
+                    #userpassword="ngModel"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerForm.submitted && userpassword.invalid
+                    }"
+                    required
+                  />
+                  <div
+                    *ngIf="registerForm.submitted && userpassword.invalid"
+                    class="invalid-feedback"
+                  >
+                    <p *ngIf="userpassword.errors.required">
+                      La contraseña es requerida.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <button class="btn btn-primary btn-block">Registrarse</button>
+              </div>
+            </form>
+            <div class="text-center">
+              <a class="small" routerLink="/login"
+                >¿Ya tienes una cuenta? ¡Inicia Sesión!</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

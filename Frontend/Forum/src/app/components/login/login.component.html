@@ -1,0 +1,82 @@
+<section class="vh-100">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/home">My Forum</a>
+    </div>
+  </nav>
+  <div class="container d-flex justify-content-center pt-5 mt-5">
+    <div class="w-50">
+      <div class="card o-hidden border-black shadow">
+        <div class="card-body p-5">
+          <div class="container">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Bienvenidos!</h1>
+            </div>
+            <form
+              #loginForm="ngForm"
+              (ngSubmit)="loginForm.form.valid && onSubmit(loginForm)"
+            >
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Usuario"
+                  name="username"
+                  [(ngModel)]="model.username"
+                  #username="ngModel"
+                  [ngClass]="{
+                    'is-invalid': loginForm.submitted && username.invalid
+                  }"
+                  username
+                  required
+                />
+                <div
+                  *ngIf="loginForm.submitted && username.invalid"
+                  class="invalid-feedback"
+                >
+                  <p *ngIf="username.errors.required">
+                    EL usuario es requerido.
+                  </p>
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Contraseña"
+                  name="userpassword"
+                  [(ngModel)]="model.userpassword"
+                  #userpassword="ngModel"
+                  [ngClass]="{
+                    'is-invalid': loginForm.submitted && userpassword.invalid
+                  }"
+                  required
+                />
+                <div
+                  *ngIf="loginForm.submitted && userpassword.invalid"
+                  class="invalid-feedback"
+                >
+                  <p *ngIf="userpassword.errors.required">
+                    La contraseña es requerida.
+                  </p>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <button class="btn btn-primary btn-block">
+                  Iniciar Sesión
+                </button>
+                <button
+                  class="btn btn-secondary btn-block"
+                  routerLink="/register"
+                >
+                  Registrarse
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

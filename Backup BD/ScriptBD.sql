@@ -1,0 +1,27 @@
+CREATE TABLE usuario (
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(50) NOT NULL,
+	apellido VARCHAR(50) NOT NULL,
+	username VARCHAR(50) NOT NULL,
+	userpassword VARCHAR(50) NOT NULL
+);
+CREATE TABLE publicacion (
+	id SERIAL PRIMARY KEY,
+	idautor INT NOT NULL,
+	titulo VARCHAR(100) NOT NULL,
+	mensaje VARCHAR(300) NOT NULL,
+	fecha DATE NOT NULL,
+	FOREIGN KEY(id)
+	REFERENCES usuario
+);
+CREATE TABLE respuesta(
+	id SERIAL PRIMARY KEY,
+	idpublicacion INT NOT NULL,
+	mensaje VARCHAR(300) NOT NULL,
+	fecha DATE NOT NULL,
+	idautor INT NOT NULL,
+	FOREIGN KEY(id)
+	REFERENCES publicacion,
+	FOREIGN KEY(id)
+	REFERENCES usuario
+);

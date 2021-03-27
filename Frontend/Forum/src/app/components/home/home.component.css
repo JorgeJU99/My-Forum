@@ -1,0 +1,33 @@
+  body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .button{
+    border-radius: 15px;
+    background-color: rgb(60, 98, 148);
+    color: white;
+  }
+  .navbar-brand{
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    font-size: 30px;
+  }
+
+  .masthead {
+    padding-top: calc(3rem + 60px);
+    padding-bottom: 10rem;
+    background-color: rgba(233, 239, 241, 0.466);
+  }
+  .masthead .masthead-heading {
+    font-size: 2.75rem;
+    line-height: 2.75rem;
+  }
+
+  .masthead .masthead-subheading{
+    font-size: 25px;
+  }
+
+  .footer {
+    background-color: #1a252f;
+    color: #fff;
+  }

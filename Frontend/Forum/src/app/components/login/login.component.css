@@ -1,0 +1,21 @@
+section{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(233, 239, 241, 0.466);
+}
+
+.navbar-brand{
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    font-size: 30px;
+  }
+
+footer {
+    color: #fff;
+}
+input {
+    border-radius: 15px;
+}
+
+.btn {
+    border-radius: 15px;
+}
