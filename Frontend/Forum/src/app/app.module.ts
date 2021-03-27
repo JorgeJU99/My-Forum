@@ -25,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ForumComponent } from './components/forum/forum.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { ForumComponent } from './components/forum/forum.component';
     LoginComponent,
     RegisterComponent,
     ForumComponent,
+    DashboardComponent,
   ],
   providers: [
     BnNgIdleService,

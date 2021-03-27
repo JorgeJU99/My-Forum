@@ -24,11 +24,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   loginUsuario(form) {
+    console.log(form.value);
     this.authService.signUp(form.value).subscribe(
       (res) => {
         if (res.estado) {
           this.toastr.success('Bienvenido al Forum!', 'Notificación!');
-          this.router.navigate(['/forum']);
+          this.router.navigate(['/dashboard']);
           localStorage.setItem('token', res.token);
         }
         if (!res.estado) {

@@ -1,0 +1,9 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+  color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-size: 30px;
+}

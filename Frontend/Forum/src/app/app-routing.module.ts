@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
+
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,8 +27,15 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'forum',
-    component: ForumComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'forum',
+        component: ForumComponent,
+      },
+    ],
   },
 ];
 
