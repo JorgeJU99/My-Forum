@@ -7,6 +7,15 @@ const getPublicacion = async (req, res) => {
   res.status(200).json(response.rows);
 };
 
+const getPublicacionById = async (req, res) => {
+  const id = parseInt(req.params.id);
+  const response = await pool.query(
+    "SELECT *, publicacion.id AS idpublicacion, usuario.id AS idusuario, usuario.username FROM publicacion, usuario WHERE publicacion.idusuario = usuario.id AND publicacion.id = $1;",
+    [id]
+  );
+  res.json(response.rows);
+};
+
 const getPublicacionByIdUsuario = async (req, res) => {
   const response = await pool.query(
     "SELECT *, publicacion.id AS idpublicacion, usuario.id AS idusuario, usuario.username FROM publicacion, usuario WHERE publicacion.idusuario = usuario.id;"
@@ -39,5 +48,6 @@ const createPublicacion = async (req, res) => {
 module.exports = {
   getPublicacion,
   createPublicacion,
+  getPublicacionById,
   getPublicacionByIdUsuario
 };

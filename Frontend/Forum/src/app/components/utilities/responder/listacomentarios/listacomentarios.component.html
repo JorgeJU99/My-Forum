@@ -1,0 +1,33 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-11">
+      <div class="d-flex justify-content-start">
+        <div class="card w-75">
+          <div class="card-body shadow rounded">
+            <div class="row-cols-1">
+              <div class="col-12">
+                <h3>
+                  <a> <fa-icon [icon]="faUserCircle"></fa-icon></a> @{{
+                    comentario.username
+                  }}
+                </h3>
+              </div>
+              <div class="col">
+                <label
+                  >{{ comentario.nombre }} {{ comentario.apellido }}
+                </label>
+                <span class="invisible">--</span>
+                <label
+                  >Fecha: {{ comentario.fecha | date: "dd-MM-yyyy" }}
+                </label>
+              </div>
+              <div class="col border border-info rounded rounded-pill">
+                <h4>{{ comentario.respuesta }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

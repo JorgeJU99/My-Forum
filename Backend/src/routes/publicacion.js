@@ -5,11 +5,13 @@ const router = Router();
 const {
   getPublicacion,
   createPublicacion,
+  getPublicacionById,
   getPublicacionByIdUsuario
 } = require("../controllers/publicacion.controller");
 
 router.get("/publicaciones", verifyToken, getPublicacion);
 router.post("/publicaciones", verifyToken, createPublicacion);
+router.get("/publicaciones/:id", verifyToken, getPublicacionById);
 router.get("/publicacionesusuario", verifyToken, getPublicacionByIdUsuario);
 
 function verifyToken(req, res, next) {

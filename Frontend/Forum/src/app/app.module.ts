@@ -28,6 +28,8 @@ import { ForumComponent } from './components/forum/forum.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PublicacionComponent } from './components/utilities/publicacion/publicacion.component';
 import { ResponderComponent } from './components/utilities/responder/responder.component';
+import { ListacomentariosComponent } from './components/utilities/responder/listacomentarios/listacomentarios.component';
+import { ListapublicacionComponent } from './components/utilities/responder/listapublicacion/listapublicacion.component';
 
 @NgModule({
   imports: [
@@ -54,6 +56,8 @@ import { ResponderComponent } from './components/utilities/responder/responder.c
     DashboardComponent,
     PublicacionComponent,
     ResponderComponent,
+    ListacomentariosComponent,
+    ListapublicacionComponent,
   ],
   providers: [
     BnNgIdleService,

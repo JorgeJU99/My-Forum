@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -12,11 +12,9 @@ export class PublicacionComponent implements OnInit {
   faUserCircle = faUserCircle;
   dataPublicacion = {};
   dataPublicacionFor = [];
-  dataRespuesta = {};
-  dataRespuestaFor = [];
   respuesta: string[] = [];
   user = { id: '', nombre: '', apellido: '', username: '', userpassword: '' };
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.obtenerPublicacionUsuario();
@@ -34,28 +32,9 @@ export class PublicacionComponent implements OnInit {
     );
   }
 
-  obtenerRespuestaComentario(id) {
-    this.apiService.getOneId('respuestaspublicacion', id).subscribe(
-      (res) => {
-        this.dataRespuesta = res;
-        console.log('Datares');
-        console.log(this.dataRespuesta);
-        for (
-          let index = 0;
-          index < Object.keys(this.dataRespuesta).length;
-          index++
-        ) {
-          this.dataRespuestaFor.push(this.dataRespuesta[index]);
-        }
-      },
-      (err) => {
-        console.log('No se listo respuesta por comentario');
-      }
-    );
-  }
-
   btnVerComentarios(id) {
     console.log(id);
+    this.router.navigate(['/dashboard/forum/respuestas/' + id]);
   }
 
   obtenerPublicacionUsuario() {
@@ -68,9 +47,6 @@ export class PublicacionComponent implements OnInit {
           index++
         ) {
           this.dataPublicacionFor.push(this.dataPublicacion[index]);
-          this.obtenerRespuestaComentario(
-            this.dataPublicacion[index].idpublicacion
-          );
         }
       },
       (err) => {

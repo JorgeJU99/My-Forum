@@ -37,7 +37,7 @@ const routes: Routes = [
         component: ForumComponent,
       },
       {
-        path: 'respuestas/:id',
+        path: 'forum/respuestas/:id',
         component: ResponderComponent,
       },
     ],
