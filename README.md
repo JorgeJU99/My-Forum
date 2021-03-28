@@ -2,8 +2,8 @@
 
 Hacer npm install dentro de la carpeta Backend y Frontend/Forum
 
-Iniciar servidor Backend
+Iniciar servidor Backend ->
 npm run dev
 
-Iniciar servidor Frontend
+Iniciar servidor Frontend ->
 ng serve
