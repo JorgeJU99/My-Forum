@@ -12,7 +12,7 @@
           aria-expanded="false"
         >
           <span style="color: #ffffff">
-            {{ user }} <a><fa-icon [icon]="faUser"></fa-icon></a
+            {{ user.username }} <a><fa-icon [icon]="faUser"></fa-icon></a
           ></span>
         </a>
         <div
@@ -32,7 +32,7 @@
       </li>
     </ul>
   </nav>
-  <div class="container-fluid">
+  <div class="container-fluid shadow w-75">
     <router-outlet></router-outlet>
   </div>
   <div
@@ -77,4 +77,14 @@
       </div>
     </div>
   </div>
+  <footer class="footer text-center bg-dark">
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <span>Copyright © My Forum 2021</span>
+      </div>
+      <div class="container">
+        <div><small>Desarrollado por: JorgeJU</small></div>
+      </div>
+    </div>
+  </footer>
 </body>

@@ -1,0 +1,8 @@
+button,
+input {
+  border-radius: 15px;
+}
+
+.bgColor {
+  background-color: rgba(9, 159, 245, 0.075);
+}

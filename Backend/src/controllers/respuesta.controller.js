@@ -7,11 +7,28 @@ const getRespuesta = async (req, res) => {
   res.status(200).json(response.rows);
 };
 
-const createRespuesta = async (req, res) => {
-  const { idpublicacion, mensaje, idusuario } = req.body;
+const getRespuestaByComentario = async (req, res) => {
+  const id = parseInt(req.params.id);
+  console.log(id);
   const response = await pool.query(
-    "INSERT INTO respuesta (idpublicacion, mensaje, fecha, idusuario) VALUES ($1,$2,$3,$4)",
-    [idpublicacion, mensaje, "now()", idusuario]
+    "SELECT *, respuesta.id AS idrespuesta FROM respuesta, usuario WHERE idusuario = usuario.id AND idpublicacion = $1 ORDER BY idrespuesta DESC",
+    [id]
+  );
+  res.json(response.rows);
+};
+
+const getRespuestaComentario = async (req, res) => {
+  const response = await pool.query(
+    "SELECT *, respuesta.id AS idrespuesta FROM respuesta, usuario WHERE idpublicacion = 2 AND idusuario = usuario.id"
+  );
+  res.json(response.rows);
+};
+
+const createRespuesta = async (req, res) => {
+  const { idusuario, idpublicacion, respuesta } = req.body;
+  const response = await pool.query(
+    "INSERT INTO respuesta ( idusuario, idpublicacion, respuesta, fecha) VALUES ($1,$2,$3,$4)",
+    [idusuario.id, idpublicacion, respuesta, "now()"]
   );
   if (response) {
     res.json({
@@ -30,5 +47,7 @@ const createRespuesta = async (req, res) => {
 
 module.exports = {
   getRespuesta,
-  createRespuesta
+  createRespuesta,
+  getRespuestaByComentario,
+  getRespuestaComentario
 };

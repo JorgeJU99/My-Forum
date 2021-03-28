@@ -4,11 +4,15 @@ const router = Router();
 
 const {
   getRespuesta,
-  createRespuesta
+  createRespuesta,
+  getRespuestaByComentario,
+  getRespuestaComentario
 } = require("../controllers/respuesta.controller");
 
 router.get("/respuestas", getRespuesta);
 router.post("/respuestas", createRespuesta);
+router.get("/respuestaspublicacion/:id", getRespuestaByComentario);
+router.get("/respuestaspublicacion", getRespuestaComentario);
 
 function verifyToken(req, res, next) {
   const bearerHeader = req.headers["authorization"];

@@ -7,6 +7,7 @@ import { ForumComponent } from './components/forum/forum.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ResponderComponent } from './components/utilities/responder/responder.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'forum',
         component: ForumComponent,
+      },
+      {
+        path: 'respuestas/:id',
+        component: ResponderComponent,
       },
     ],
   },

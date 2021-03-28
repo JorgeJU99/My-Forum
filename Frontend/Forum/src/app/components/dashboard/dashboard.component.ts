@@ -10,7 +10,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 })
 export class DashboardComponent implements OnInit {
   faUser = faUser;
-  user = {};
+  user = { username: '' };
   constructor(
     private authService: AuthService,
     private apiService: ApiService
@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   infoUsuarioLogin() {
     this.apiService.get('usuarioLogin').subscribe(
       (data) => {
-        this.user = data.usuario[0].username;
+        this.user = data.usuario[0];
       },
       (err) => {
         console.log(err);

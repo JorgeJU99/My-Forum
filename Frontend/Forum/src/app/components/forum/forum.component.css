@@ -1,0 +1,15 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+  border-radius: 15px;
+}
+
+textarea {
+  border-radius: 15px;
+}
+
+button {
+  border-radius: 15px;
+}

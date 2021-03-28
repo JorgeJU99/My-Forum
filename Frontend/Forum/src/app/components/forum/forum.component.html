@@ -1,1 +1,54 @@
-<p>Forooooo Empieza!</p>
+<body>
+  <div class="d-flex justify-content-center">
+    <div class="w-100">
+      <div class="card-body d-flex justify-content-center">
+        <form
+          class="w-50"
+          #publicacionForm="ngForm"
+          (ngSubmit)="publicacionForm.form.valid && onSubmit(publicacionForm)"
+        >
+          <div class="form-group">
+            <label>Título:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="titulo"
+              [(ngModel)]="model.titulo"
+              #titulo="ngModel"
+              [ngClass]="{
+                'is-invalid': publicacionForm.submitted && titulo.invalid
+              }"
+              titulo
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Comentario:</label>
+            <textarea
+              type="text"
+              rows="4"
+              class="form-control"
+              name="mensaje"
+              [(ngModel)]="model.mensaje"
+              #mensaje="ngModel"
+              [ngClass]="{
+                'is-invalid': publicacionForm.submitted && mensaje.invalid
+              }"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-info btn-block">Publicar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <hr />
+  <div>
+    <h1>Aqui comienza ver los posts!</h1>
+    <hr />
+    <app-publicacion></app-publicacion>
+  </div>
+</body>

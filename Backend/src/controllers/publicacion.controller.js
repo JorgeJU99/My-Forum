@@ -7,11 +7,19 @@ const getPublicacion = async (req, res) => {
   res.status(200).json(response.rows);
 };
 
+const getPublicacionByIdUsuario = async (req, res) => {
+  const response = await pool.query(
+    "SELECT *, publicacion.id AS idpublicacion, usuario.id AS idusuario, usuario.username FROM publicacion, usuario WHERE publicacion.idusuario = usuario.id;"
+  );
+  res.json(response.rows);
+};
+
 const createPublicacion = async (req, res) => {
-  const { idusuario, titulo, mensaje } = req.body;
+  const { usuario, titulo, mensaje } = req.body;
+  console.log("here" + usuario.id);
   const response = await pool.query(
     "INSERT INTO publicacion (idusuario, titulo, mensaje, fecha) VALUES ($1,$2,$3,$4)",
-    [idusuario, titulo, mensaje, "now()"]
+    [usuario.id, titulo, mensaje, "now()"]
   );
   if (response) {
     res.json({
@@ -30,5 +38,6 @@ const createPublicacion = async (req, res) => {
 
 module.exports = {
   getPublicacion,
-  createPublicacion
+  createPublicacion,
+  getPublicacionByIdUsuario
 };

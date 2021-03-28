@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       (res) => {
         if (res.estado) {
           this.toastr.success('Bienvenido al Forum!', 'Notificación!');
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/forum']);
           localStorage.setItem('token', res.token);
         }
         if (!res.estado) {
