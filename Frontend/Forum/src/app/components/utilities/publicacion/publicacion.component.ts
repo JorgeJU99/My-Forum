@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-publicacion',
@@ -14,7 +15,11 @@ export class PublicacionComponent implements OnInit {
   dataPublicacionFor = [];
   respuesta: string[] = [];
   user = { id: '', nombre: '', apellido: '', username: '', userpassword: '' };
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.obtenerPublicacionUsuario();
@@ -66,6 +71,7 @@ export class PublicacionComponent implements OnInit {
       (res) => {
         if (res.estado) {
           console.log('Comentario realizado');
+          this.toastr.info('Comentario realizado!', 'Notificación!');
           this.borrarForm();
         }
         if (!res.estado) {

@@ -9,7 +9,7 @@ body {
 }
 .footer {
   color: #fff;
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  margin-top: 460px;
   width: 100%;
 }

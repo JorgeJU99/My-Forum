@@ -2,6 +2,7 @@
   *ngFor="let publicacion of dataPublicacionFor; let index = index"
   [value]="publicacion.id"
 >
+  <hr />
   <div class="card bgColor">
     <div class="d-flex justify-content-center">
       <div class="card-body">
@@ -24,7 +25,7 @@
           </div>
         </div>
         <div class="py-2 border border-info rounded">
-          <div class="row">
+          <div class="row p-1 m-1">
             <div class="col-12">
               <h4>{{ publicacion.titulo }}</h4>
             </div>
@@ -64,15 +65,15 @@
           </div>
           <div class="col-2 d-flex justify-content-start pr-5">
             <div class="row">
-              <div class="col"></div>
-              <div class="col">
+              <div class="col-11">
                 <button
                   class="btn btn-info"
                   (click)="btnVerComentarios(publicacion.idpublicacion)"
                 >
-                  {{ publicacion.idpublicacion }}
+                  Ver Comentarios
                 </button>
               </div>
+              <div class="col"></div>
             </div>
           </div>
         </div>

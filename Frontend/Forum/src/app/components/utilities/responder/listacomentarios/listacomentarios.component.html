@@ -21,8 +21,12 @@
                   >Fecha: {{ comentario.fecha | date: "dd-MM-yyyy" }}
                 </label>
               </div>
-              <div class="col border border-info rounded rounded-pill">
-                <h4>{{ comentario.respuesta }}</h4>
+              <div class="pl-2">
+                <div class="border border-info rounded">
+                  <div class="col pt-2">
+                    <p>{{ comentario.respuesta }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
