@@ -68,4 +68,8 @@ export class ResponderComponent implements OnInit {
       }
     );
   }
+
+  btnRegresar() {
+    this.router.navigate(['/dashboard/forum']);
+  }
 }

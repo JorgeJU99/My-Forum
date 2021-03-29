@@ -3,7 +3,14 @@
   <div *ngFor="let publicacion of dataPublicacionFor">
     <app-listapublicacion [publicacion]="publicacion"></app-listapublicacion>
   </div>
-  <div class="pl-3"><h3>↓ Comentarios ↓</h3></div>
+  <div class="row">
+    <div class="col-6">
+      <div class="pl-3"><h3>↓ Comentarios ↓</h3></div>
+    </div>
+    <div class="col-6 d-flex justify-content-end pr-5">
+      <button class="btn btn-info" (click)="btnRegresar()">Regresar</button>
+    </div>
+  </div>
   <div *ngFor="let comentario of dataComentarioFor">
     <app-listacomentarios [comentario]="comentario"></app-listacomentarios>
   </div>
