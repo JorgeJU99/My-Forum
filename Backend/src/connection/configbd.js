@@ -1,8 +1,8 @@
 const configdb = {
   user: "postgres",
-  host: "localhost",
-  password: "root",
-  database: "forum",
+  host: "192.168.1.100",
+  password: "postgres",
+  database: "Forum",
   port: "5432"
 };
 module.exports = configdb;
