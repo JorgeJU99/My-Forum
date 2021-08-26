@@ -19,7 +19,7 @@ CREATE TABLE publicacion
     CONSTRAINT publicacion_id_fkey FOREIGN KEY (idusuario) REFERENCES usuario (id)
 )
 
-CREATE TABLE public.respuesta
+CREATE TABLE respuesta
 (
     id serial,
     idusuario integer NOT NULL,

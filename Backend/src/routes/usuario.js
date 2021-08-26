@@ -8,7 +8,7 @@ const {
   postValidarUsuario
 } = require("../controllers/usuario.controller");
 
-router.get("/usuarios", verifyToken, getUsuario);
+router.get("/usuarios", getUsuario);
 router.post("/usuarios", verifyToken, createUsuario);
 router.get("/usuarioLogin", verifyToken, usuarioLogin);
 router.post("/login", postValidarUsuario);

@@ -1,7 +1,7 @@
 const configdb = {
   user: "postgres",
-  host: "192.168.1.100",
-  password: "postgres",
+  host: "192.170.0.100",
+  password: "root",
   database: "Forum",
   port: "5432"
 };
